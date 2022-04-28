@@ -1,5 +1,5 @@
 {
-  "name": "grip.js",
+  "name": "grip",
   "version": "0.0.1",
   "main": "dist/common/grip.umd.js",
   "module": "dist/common/grip.es.js",
