@@ -5,13 +5,13 @@ import Split from "./Split.vue";
 import { OPTIONS, STORE } from "../Symbols";
 import { useSideResize } from "../use/useSideResize";
 
-export default defineComponent(() => {
+export default defineComponent((props,ctx) => {
   /** Inject **/
   const options = inject(OPTIONS) as Grip.LayoutOptions;
   const store = inject(STORE) as Grip.Store;
 
   /**----- SideBar -----**/
-  const SideBar = options.sideBar.component; // 侧边栏实际组件
+  const SideBar = options.sideBar.component||ctx.slots["side"]; // 侧边栏实际组件
 
   const { resize, resizeFinish, sideWidth } = useSideResize();
 
@@ -22,7 +22,7 @@ export default defineComponent(() => {
   const onResizeFinish = () => resizeFinish();
 
   /**----- HeadBar -----**/
-  const HeadBar = options.headBar.component;
+  const HeadBar = options.headBar.component||ctx.slots["head"];
   const headStyle = ref({
     height: (() => {
       const h = options.headBar.height;
@@ -60,9 +60,7 @@ export default defineComponent(() => {
         collapsed={store.collapsed}
         onUpdateCollapsed={(v: boolean) => (store.collapsed = v)}
       >
-        <slot name="side">
-          <SideBar></SideBar>
-        </slot>
+        <SideBar></SideBar>
       </NLayoutSider>
       {options.sideBar.resizable && !store.collapsed ? (
         <Split onResize={onResize} onFinish={onResizeFinish}></Split>
@@ -71,9 +69,7 @@ export default defineComponent(() => {
       )}
       <NLayout style="height: 100vh">
         <NLayoutHeader style={headStyle.value} bordered>
-          <slot name="head">
-            <HeadBar></HeadBar>
-          </slot>
+          <HeadBar></HeadBar>
         </NLayoutHeader>
         <NLayout
           position="absolute"
