@@ -60,7 +60,9 @@ export default defineComponent(() => {
         collapsed={store.collapsed}
         onUpdateCollapsed={(v: boolean) => (store.collapsed = v)}
       >
-        <SideBar></SideBar>
+        <slot name="side">
+          <SideBar></SideBar>
+        </slot>
       </NLayoutSider>
       {options.sideBar.resizable && !store.collapsed ? (
         <Split onResize={onResize} onFinish={onResizeFinish}></Split>
@@ -69,7 +71,9 @@ export default defineComponent(() => {
       )}
       <NLayout style="height: 100vh">
         <NLayoutHeader style={headStyle.value} bordered>
-          <HeadBar></HeadBar>
+          <slot name="head">
+            <HeadBar></HeadBar>
+          </slot>
         </NLayoutHeader>
         <NLayout
           position="absolute"
