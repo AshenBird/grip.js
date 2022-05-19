@@ -16,7 +16,7 @@ declare namespace Grip{
   export interface HeadBarOptions extends Required<CreateHeadBarOptions> {}
   export interface CreateLayoutOptions{
     [key:string]:unknown
-    useRouter?:boolean
+    // useRouter?:boolean
     headBar?:CreateHeadBarOptions
     sideBar?:CreateSideBarOptions
   }
@@ -24,7 +24,7 @@ declare namespace Grip{
 
   export interface LayoutOptions {
     [key:string]:unknown
-    useRouter:boolean
+    // useRouter:boolean
     headBar:HeadBarOptions
     sideBar:SideBarOptions
   }

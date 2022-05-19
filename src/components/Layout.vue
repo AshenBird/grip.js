@@ -77,7 +77,8 @@ export default defineComponent(() => {
           style="top: 54px; background-color: var(--surface)"
           native-scrollbar={false}
         >
-          <slot>{options.useRouter ? <router-view></router-view> : ""}</slot>
+          <slot></slot>
+          {/**<slot>{options.useRouter ? <router-view></router-view> : ""}</slot>*/}
         </NLayout>
       </NLayout>
     </NLayout>

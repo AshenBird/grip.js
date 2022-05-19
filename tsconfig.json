@@ -15,7 +15,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["naive-ui/volar"],
+    // "types": ["naive-ui/volar"],
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": [

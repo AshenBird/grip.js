@@ -22,7 +22,7 @@ function assign<T extends Record<string, unknown>>(
 
 const defaultOptions = (raw: Grip.CreateLayoutOptions = {}) => {
   return assign<Grip.CreateLayoutOptions>(raw, {
-    useRouter: true,
+    // useRouter: true,
     headBar: {
       component: defineComponent(() => () => <div></div>),
       height: "54px",

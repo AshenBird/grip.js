@@ -3,7 +3,7 @@ import { createLayout } from "../src/index"
 import Foo from "./Foo.vue"
 import Bar from "./Bar.vue"
 const {component:Layout} = createLayout({
-  useRouter:true,
+  // useRouter:true,
   sideBar:{
     component:Foo
   }
