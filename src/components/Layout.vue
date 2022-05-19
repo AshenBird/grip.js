@@ -11,7 +11,7 @@ export default defineComponent((props,ctx) => {
   const store = inject(STORE) as Grip.Store;
 
   /**----- SideBar -----**/
-  const SideBar = options.sideBar.component||ctx.slots["side"]; // 侧边栏实际组件
+  const SideBar = ctx.slots["side"]||options.sideBar.component; // 侧边栏实际组件
 
   const { resize, resizeFinish, sideWidth } = useSideResize();
 
@@ -22,7 +22,7 @@ export default defineComponent((props,ctx) => {
   const onResizeFinish = () => resizeFinish();
 
   /**----- HeadBar -----**/
-  const HeadBar = options.headBar.component||ctx.slots["head"];
+  const HeadBar = ctx.slots["head"]||options.headBar.component;
   const headStyle = ref({
     height: (() => {
       const h = options.headBar.height;
