@@ -1,5 +1,5 @@
 import Layout from "./components/Layout.vue";
-import { defineComponent, provide, reactive, toRaw, watch,App } from "vue";
+import { defineComponent, provide, reactive, toRaw, watch, App } from "vue";
 import { OPTIONS, SET_STORE, STORE } from "./Symbols";
 
 function assign<T extends Record<string, unknown>>(
@@ -37,7 +37,7 @@ const defaultOptions = (raw: Grip.CreateLayoutOptions = {}) => {
 
 export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
   const options = defaultOptions(optionsRaw);
-  const STORE_KEY = "__GRIP_LAYOUT_STORE"
+  const STORE_KEY = "__GRIP_LAYOUT_STORE";
   const getStore = () => {
     const o = localStorage.getItem(STORE_KEY);
     if (o) {
@@ -72,23 +72,30 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
         store,
       };
     },
-    component: defineComponent(() => {
+    component: defineComponent((props, ctx) => {
       if (options) {
         provide(OPTIONS, options);
         provide(STORE, store);
         provide(SET_STORE, setStore);
       }
+      const slots = {
+        head: ctx.slots["head"],
+        side: ctx.slots["side"],
+        default: ctx.slots["default"],
+      }
       return () => (
         <>
-          <Layout />
+          <Layout
+            v-slots={slots}
+          ></Layout>
         </>
       );
     }),
-    install(app:App) {
-      app.config.globalProperties.$grip={
-        getOptions:()=>options,
-        getStore:()=>store,
-      }
+    install(app: App) {
+      app.config.globalProperties.$grip = {
+        getOptions: () => options,
+        getStore: () => store,
+      };
     },
   };
 };

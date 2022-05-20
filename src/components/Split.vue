@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import CssRender from "css-render";
 import { onUnmounted, ref, watchEffect, PropType } from "vue";
 
 const emit = defineEmits({
@@ -60,33 +61,9 @@ onUnmounted(() => {
     document.removeEventListener(k, v);
   }
 });
+
+
 </script>
 <template>
   <div class="resize-split" @mousedown="onMouseDown"></div>
 </template>
-<style>
-.resizing {
-  cursor: e-resize;
-}
-.resize-split {
-  height: 100vh;
-  width: 5px;
-  position: relative;
-  box-sizing: content-box;
-  background: #000;
-  cursor: e-resize;
-}
-.resize-split::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 1px solid #555;
-  border-top: 0;
-  border-bottom: 0;
-  transform: scaleX(0.5);
-}
-</style>
