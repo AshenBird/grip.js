@@ -1,6 +1,6 @@
 {
   "name": "grip.js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/common/grip.umd.js",
   "module": "dist/common/grip.es.js",
   "scripts": {
