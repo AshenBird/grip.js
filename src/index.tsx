@@ -1,6 +1,7 @@
 import Layout from "./components/Layout.vue";
 import { defineComponent, provide, reactive, toRaw, watch, App } from "vue";
 import { INNER_OPTION, OPTIONS, SET_STORE, STORE } from "./Symbols";
+export { useRefresh } from "./use/useRefresh"
 
 function assign<T extends Record<string, unknown>>(
   raw: T,
@@ -106,3 +107,4 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
     },
   };
 };
+ 

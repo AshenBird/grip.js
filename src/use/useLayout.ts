@@ -7,6 +7,7 @@ export const useLaypout = () => {
   const options = inject(OPTIONS) as Grip.LayoutOptions;
   const store = inject(STORE) as Grip.Store;
   const innerOption = inject(INNER_OPTION) as Grip.InnerOption;
+  
   /** Padding **/
   const rightPaddingLeft = ref(30);
 
@@ -48,7 +49,6 @@ export const useLaypout = () => {
     return innerOption.refresh(...args)
   }
 
-  
   return {
     options,
     store,
