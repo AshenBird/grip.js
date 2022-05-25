@@ -36,4 +36,7 @@ declare namespace Grip{
   }
   export type Store = UnwrapNestedRefs<StoreRaw>
   export type SetStore = (store:Store)=>void;
+  export type InnerOption = {
+    refresh:(...args:any[])=>any
+  };
 }

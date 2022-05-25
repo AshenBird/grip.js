@@ -1,12 +1,12 @@
-import { ref, computed, inject } from "vue";
+import { ref, computed, inject, provide } from "vue";
 import { useSideResize } from "../use/useSideResize";
-import { OPTIONS, STORE } from "../Symbols";
-import CssRender from "css-render";
+import { OPTIONS, STORE, REFRESH, INNER_OPTION } from "../Symbols";
+// import CssRender from "css-render";
 export const useLaypout = () => {
-  /** Inject **/
+  /** Inject Base Data**/
   const options = inject(OPTIONS) as Grip.LayoutOptions;
   const store = inject(STORE) as Grip.Store;
-
+  const innerOption = inject(INNER_OPTION) as Grip.InnerOption;
   /** Padding **/
   const rightPaddingLeft = ref(30);
 
@@ -42,6 +42,13 @@ export const useLaypout = () => {
     paddingBottom: `0`,
   }));
 
+  /**---- Refresh -----**/
+
+  const refresh = (...args:any[])=>{
+    return innerOption.refresh(...args)
+  }
+
+  
   return {
     options,
     store,
@@ -50,5 +57,6 @@ export const useLaypout = () => {
     onResizeFinish,
     sideWidth,
     headStyle,
+    refresh
   };
 };

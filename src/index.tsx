@@ -1,6 +1,6 @@
 import Layout from "./components/Layout.vue";
 import { defineComponent, provide, reactive, toRaw, watch, App } from "vue";
-import { OPTIONS, SET_STORE, STORE } from "./Symbols";
+import { INNER_OPTION, OPTIONS, SET_STORE, STORE } from "./Symbols";
 
 function assign<T extends Record<string, unknown>>(
   raw: T,
@@ -54,7 +54,9 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
     localStorage.setItem(STORE_KEY, JSON.stringify(toRaw(s)));
 
   const store = reactive<Grip.StoreRaw>(getStore());
-
+  const innerOption = reactive<Grip.InnerOption>({
+    refresh: () => {},
+  });
   watch(
     store,
     (n) => {
@@ -66,6 +68,12 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
   );
 
   return {
+    useRefresh: (action?: (...args: any[]) => any) => {
+      if (action) {
+        innerOption.refresh = action;
+      }
+      return innerOption.refresh
+    },
     useLayout: () => {
       return {
         options,
@@ -78,16 +86,15 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
         provide(STORE, store);
         provide(SET_STORE, setStore);
       }
+      provide(INNER_OPTION, innerOption);
       const slots = {
         head: ctx.slots["head"],
         side: ctx.slots["side"],
         default: ctx.slots["default"],
-      }
+      };
       return () => (
         <>
-          <Layout
-            v-slots={slots}
-          ></Layout>
+          <Layout v-slots={slots}></Layout>
         </>
       );
     }),

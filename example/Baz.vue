@@ -1,7 +1,15 @@
 <script lang="ts" setup>
 import { createLayout } from "../src/index";
 
-const { component: Layout } = createLayout();
+const { component: Layout, useRefresh } = createLayout();
+
+useRefresh(()=>{
+  console.log('refresh')
+})
+const refresh = useRefresh();
+setTimeout(() => {
+  refresh();
+}, 3000);
 </script>
 <template>
   <Layout>
