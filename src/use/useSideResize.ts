@@ -2,6 +2,8 @@ import { ref, inject, toRaw } from "vue";
 import { STORE } from "../Symbols";
 import gsap from "gsap";
 import { CssRender } from "css-render";
+import type { Grip } from "@/Grip"
+
 export const useSideResize = () => {
   /** Constant **/
   const SIDEBAR_MIN_WIDTH = 200;

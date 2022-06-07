@@ -1,6 +1,6 @@
-import { defineComponent } from "vue";
+import { h, Fragment, defineComponent } from "vue";
 import { NLayout, NLayoutSider, NLayoutHeader } from "naive-ui";
-import Split from "./Split.vue";
+import {Split} from "./Split";
 
 import { useLaypout } from "../use/useLayout";
 export default defineComponent((props, ctx) => {
@@ -31,6 +31,7 @@ export default defineComponent((props, ctx) => {
         width={sideWidth.value}
         show-trigger="bar"
         content-style="padding: 15px; padding-top: 56px;"
+        // @ts-ignore
         style="height: 100vh"
         bordered
         collapsed={store.collapsed}
@@ -43,13 +44,21 @@ export default defineComponent((props, ctx) => {
       ) : (
         ""
       )}
-      <NLayout style="height: 100vh">
-        <NLayoutHeader style={headStyle.value} bordered>
+      <NLayout
+        // @ts-ignore
+        style="height: 100vh"
+      >
+        <NLayoutHeader
+          // @ts-ignore
+          style={headStyle.value}
+          bordered
+        >
           <HeadBar></HeadBar>
         </NLayoutHeader>
         <NLayout
           position="absolute"
           content-style={contentStyle.value}
+          // @ts-ignore
           style="top: 54px; background-color: var(--surface)"
           native-scrollbar={false}
         >
