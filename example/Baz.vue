@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { createLayout } from "../src/index";
+import { createLayout } from "../dist/es/index";
 
 const { component: Layout, useRefresh } = createLayout();
 

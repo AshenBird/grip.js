@@ -2,7 +2,7 @@ import { ref, inject, toRaw } from "vue";
 import { STORE } from "../Symbols";
 import gsap from "gsap";
 import { CssRender } from "css-render";
-import type { Grip } from "@/Grip"
+import type { Grip } from "../Grip"
 
 export const useSideResize = () => {
   /** Constant **/

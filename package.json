@@ -1,8 +1,9 @@
 {
   "name": "grip.js",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "dist/common/grip.umd.js",
-  "module": "dist/common/grip.es.js",
+  "module": "dist/es",
+  "types": "dist/es",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && npm run build:common && npm run build:naive && npm run build:npm",

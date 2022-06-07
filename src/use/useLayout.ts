@@ -1,7 +1,7 @@
 import { ref, computed, inject, provide } from "vue";
 import { useSideResize } from "../use/useSideResize";
 import { OPTIONS, STORE, REFRESH, INNER_OPTION } from "../Symbols"
-import type { Grip } from "@/Grip"
+import type { Grip } from "../Grip"
 // import CssRender from "css-render";
 export const useLaypout = () => {
   /** Inject Base Data**/
