@@ -1,14 +1,14 @@
 {
   "name": "grip.js",
-  "version": "0.0.11",
-  "main": "dist/common/grip.umd.js",
-  "module": "dist/es",
-  "types": "dist/es",
+  "version": "0.0.12",
+  "main": "dist/es/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && npm run build:common && npm run build:naive && npm run build:npm",
     "build:common": "vite build",
-    "build:npm":"tsc -b --force tsconfig.esm.json",
+    "build:npm": "tsc -b --force tsconfig.esm.json",
     "build:naive": "cross-env UI_LIB=naive vite build",
     "preview": "vite preview",
     "prepublish": "npm run build"
