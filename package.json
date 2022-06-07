@@ -1,9 +1,15 @@
 {
   "name": "grip.js",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "dist/es/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && npm run build:common && npm run build:naive && npm run build:npm",
