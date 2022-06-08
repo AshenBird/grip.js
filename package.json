@@ -1,6 +1,6 @@
 {
   "name": "grip.js",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "main": "dist/es/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",
@@ -29,9 +29,9 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "cross-env": "^7.0.3",
-    "typescript": "^4.5.4",
+    "typescript": "^4.7.3",
     "vite": "^2.9.6",
     "vue-router": "^4.0.14",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.37.3"
   }
 }
