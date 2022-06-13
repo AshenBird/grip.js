@@ -1,4 +1,4 @@
-import { INNER_OPTION } from "@/Symbols";
+import { INNER_OPTION } from "../Symbols";
 import { inject } from "vue";
 import type { Grip } from "../Grip"
 

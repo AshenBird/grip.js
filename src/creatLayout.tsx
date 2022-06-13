@@ -1,9 +1,7 @@
 import Layout from "./components/Layout";
 import { h, Fragment, defineComponent, provide, reactive, toRaw, watch, App } from "vue";
 import { INNER_OPTION, OPTIONS, SET_STORE, STORE } from "./Symbols";
-export { useRefresh } from "./use/useRefresh"
 import type { Grip } from "./Grip"
-export type { Grip } from "./Grip"
 function assign<T extends Record<string, unknown>>(
   raw: T,
   base: Required<T>
@@ -21,7 +19,6 @@ function assign<T extends Record<string, unknown>>(
   }
   return result;
 }
-
 const defaultOptions = (raw: Grip.CreateLayoutOptions = {}) => {
   return assign<Grip.CreateLayoutOptions>(raw, {
     // useRouter: true,
@@ -96,7 +93,9 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
       };
       return () => (
         <>
-          <Layout v-slots={slots}></Layout>
+          <Layout >
+            {slots}
+          </Layout>
         </>
       );
     }),

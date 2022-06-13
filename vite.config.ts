@@ -17,7 +17,7 @@ const options: UserConfigExport = {
   plugins: [vue(), jsx()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "./src/index.tsx"),
+      entry: path.resolve(__dirname, "./src/index.ts"),
       name: "grip",
       fileName: (format) => `grip.${format}.js`, //${UI_LIB ? UI_LIB + "." : ""}
     },

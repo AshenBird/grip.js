@@ -13,7 +13,6 @@ export default defineComponent((props, ctx) => {
     sideWidth,
     headStyle,
   } = useLaypout();
-
   const Default = ctx.slots["default"];
 
   /**----- SideBar -----**/
@@ -37,7 +36,8 @@ export default defineComponent((props, ctx) => {
         collapsed={store.collapsed}
         onUpdateCollapsed={(v: boolean) => (store.collapsed = v)}
       >
-        <SideBar></SideBar>
+        { SideBar }
+        {/* <SideBar></SideBar> */}
       </NLayoutSider>
       {options.sideBar.resizable && !store.collapsed ? (
         <Split onResize={onResize} onFinish={onResizeFinish}></Split>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Providers from "./Providers.vue"
+import {Providers} from "../dist/es"
 </script>
 <template>
   <Providers>

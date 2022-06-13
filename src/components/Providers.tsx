@@ -9,15 +9,17 @@ import {
 import { darkTheme } from "naive-ui";
 import { h, Fragment, computed, defineComponent } from "vue";
 
-export default defineComponent(() => {
+export const Providers = defineComponent((props, ctx) => {
   const theme = computed(() => ("dark" === "dark" ? darkTheme : null));
+  const Default = ctx.slots["default"];
   return () => (
     <NConfigProvider theme={darkTheme}>
       <NNotificationProvider>
         <NMessageProvider>
           <NLoadingBarProvider>
             <NDialogProvider>
-              <slot></slot>
+              {/**  @ts-ignore */}
+              <Default></Default>
             </NDialogProvider>
           </NLoadingBarProvider>
         </NMessageProvider>
