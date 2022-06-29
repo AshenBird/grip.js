@@ -31,6 +31,9 @@ export declare namespace Grip{
   }
   export interface StoreRaw {
     collapsed:boolean
+    content:{
+      height:number
+    }
     sideBar:{
       width:[number,number]
     }

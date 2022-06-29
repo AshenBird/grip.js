@@ -42,7 +42,7 @@ export const useLayout = () => {
     paddingRight: "40px",
     paddingLeft: `${rightPaddingLeft.value}px`,
     paddingBottom: `20px`,
-    height:'100%',
+    minHeight:"100%"
   }));
 
   /**---- Refresh -----**/

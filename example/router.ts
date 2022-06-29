@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory} from "vue-router"
-import { createLayout } from "../src/index"
+// import { createLayout } from "../dist/es"
+import { createLayout } from "../src"
 import Foo from "./Foo.vue"
 import Bar from "./Bar.vue"
 import Baz from "./Baz.vue"

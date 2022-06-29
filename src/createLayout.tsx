@@ -39,15 +39,19 @@ export const createLayout = (optionsRaw?: Grip.CreateLayoutOptions) => {
   const STORE_KEY = "__GRIP_LAYOUT_STORE";
   const getStore = () => {
     const o = localStorage.getItem(STORE_KEY);
-    if (o) {
-      return JSON.parse(o);
-    }
-    return {
+    const temp ={
       sideBar: {
         width: [25, 100],
       },
+      content:{
+        height:0
+      },
       collapsed: false,
-    };
+    }
+    if (o) {
+      return Object.assign(JSON.parse(o), temp);
+    }
+    return temp;
   };
   const setStore = (s: Grip.Store) =>
     localStorage.setItem(STORE_KEY, JSON.stringify(toRaw(s)));

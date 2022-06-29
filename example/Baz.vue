@@ -1,15 +1,18 @@
 <script lang="ts" setup>
 import { createLayout } from "../src";
-// import { createLayout } from "../src";
+// import { createLayout } from "../dist/es";
 
-const { component: Layout, useRefresh } = createLayout();
+const { component: Layout, useRefresh, useLayout } = createLayout();
 
 useRefresh(()=>{
   console.log('refresh')
-})
+}) 
+
+const { store } = useLayout()
+
 const refresh = useRefresh();
 setTimeout(() => {
-  refresh();
+  console.log(store.content)
 }, 3000);
 </script>
 <template>
