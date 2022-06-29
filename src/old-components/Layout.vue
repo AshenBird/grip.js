@@ -1,7 +1,7 @@
 <script lang="tsx" setup>
 import { NLayout, NLayoutSider, NLayoutHeader } from "naive-ui";
 import Split from "./Split.vue";
-import { useLaypout } from "../use/useLayout";
+import { useLayout } from "../use/useLayout";
 const {
   options,
   store,
@@ -10,7 +10,7 @@ const {
   onResizeFinish,
   sideWidth,
   headStyle,
-} = useLaypout();
+} = useLayout();
 
 /**----- SideBar -----**/
 const SideBar = options.sideBar.component; // 侧边栏实际组件

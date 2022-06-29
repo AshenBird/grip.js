@@ -3,7 +3,7 @@ import { useSideResize } from "../use/useSideResize";
 import { OPTIONS, STORE, REFRESH, INNER_OPTION } from "../Symbols"
 import type { Grip } from "../Grip"
 // import CssRender from "css-render";
-export const useLaypout = () => {
+export const useLayout = () => {
   /** Inject Base Data**/
   const options = inject(OPTIONS) as Grip.LayoutOptions;
   const store = inject(STORE) as Grip.Store;
@@ -41,7 +41,8 @@ export const useLaypout = () => {
     padding: "20px",
     paddingRight: "40px",
     paddingLeft: `${rightPaddingLeft.value}px`,
-    paddingBottom: `0`,
+    paddingBottom: `20px`,
+    height:'100%',
   }));
 
   /**---- Refresh -----**/

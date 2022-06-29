@@ -2,7 +2,7 @@ import { h, Fragment, defineComponent } from "vue";
 import { NLayout, NLayoutSider, NLayoutHeader } from "naive-ui";
 import {Split} from "./Split";
 
-import { useLaypout } from "../use/useLayout";
+import { useLayout } from "../use/useLayout";
 export default defineComponent((props, ctx) => {
   const {
     options,
@@ -12,7 +12,7 @@ export default defineComponent((props, ctx) => {
     onResizeFinish,
     sideWidth,
     headStyle,
-  } = useLaypout();
+  } = useLayout();
   const Default = ctx.slots["default"];
 
   /**----- SideBar -----**/
@@ -37,7 +37,6 @@ export default defineComponent((props, ctx) => {
         onUpdateCollapsed={(v: boolean) => (store.collapsed = v)}
       >
         { SideBar }
-        {/* <SideBar></SideBar> */}
       </NLayoutSider>
       {options.sideBar.resizable && !store.collapsed ? (
         <Split onResize={onResize} onFinish={onResizeFinish}></Split>
@@ -62,8 +61,7 @@ export default defineComponent((props, ctx) => {
           style="top: 54px; background-color: var(--surface)"
           native-scrollbar={false}
         >
-          {/**  @ts-ignore */}
-          <Default></Default>
+          {Default}
         </NLayout>
       </NLayout>
     </NLayout>

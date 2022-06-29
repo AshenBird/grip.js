@@ -1,6 +1,6 @@
 {
   "name": "grip.js",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "main": "dist/es/index.js",
   "module": "dist/es/index.js",
   "types": "dist/es/index.d.ts",

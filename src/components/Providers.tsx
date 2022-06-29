@@ -18,6 +18,7 @@ export const Providers = defineComponent((props, ctx) => {
         <NMessageProvider>
           <NLoadingBarProvider>
             <NDialogProvider>
+              {/* {Default()} */}
               {/**  @ts-ignore */}
               <Default></Default>
             </NDialogProvider>
